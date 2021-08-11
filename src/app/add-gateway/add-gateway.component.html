@@ -1,0 +1,26 @@
+<mat-dialog-content>
+
+    <div class="dialog-header">
+        <h5 class="m-0">Device</h5>
+
+        <button (click)="closeClick()" color="warn" mat-icon-button>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+    <form class="d-flex flex-column">
+
+        <mat-dialog-actions>
+
+            <div class="col-12 d-flex justify-content-end align-items-center">
+
+                <button (click)="closeClick()" color="warn" mat-stroked-button>Cancel
+                </button>
+
+                <button (click)="saveClick()" color="accent" mat-flat-button>Save
+                </button>
+
+            </div>
+        </mat-dialog-actions>
+    </form>
+</mat-dialog-content>

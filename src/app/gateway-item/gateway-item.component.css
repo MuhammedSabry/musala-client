@@ -1,0 +1,7 @@
+mat-expansion-panel-header {
+    height: 96px !important;
+}
+
+:host::ng-deep .mat-expansion-panel-body {
+    padding: 0 !important;
+}

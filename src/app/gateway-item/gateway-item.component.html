@@ -1,0 +1,71 @@
+<div class="d-flex flex-column">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <div class="d-flex flex-column">
+
+                <div class="d-flex">
+                    <span>Gateway</span>
+                    <span class="text-secondary ml-1">{{gateway.name}}</span>
+                </div>
+
+                <div class="d-flex">
+                    <span>Address</span>
+                    <span class="text-secondary ml-1">{{gateway.address}}</span>
+                </div>
+
+                <div class="d-flex">
+                    <span>no. Of devices</span>
+                    <span class="text-secondary ml-1">{{gateway.deviceList?.length}}</span>
+                </div>
+
+            </div>
+        </mat-expansion-panel-header>
+
+        <div class="d-flex flex-column align-items-start">
+            <button (click)="addDeviceClick()" class="m-3 align-self-end" color="accent"
+                    mat-flat-button>Add Device
+            </button>
+            <span *ngIf="gateway.deviceList?.length"
+                  class="m-auto text-center font-weight-bold mt-3">Devices
+            </span>
+            <div *ngFor="let device of gateway.deviceList;let i=index"
+                 class="d-flex flex-column border-top p-3 mt-1 align-items-start w-100">
+
+                <div class="d-flex">
+                    <span>Device No.</span>
+                    <span class="text-secondary ml-1">{{i + 1}}</span>
+                </div>
+
+                <div class="d-flex">
+                    <span>ID</span>
+                    <span class="text-secondary ml-1">{{device.id}}</span>
+                </div>
+
+                <div class="d-flex">
+                    <span>Status</span>
+                    <span [class.success]="device.isOnline" [class.warning]="!device.isOnline"
+                          class="text-secondary ml-1">{{device.isOnline ? 'Online' : 'Offline'}}</span>
+                </div>
+
+                <div class="d-flex">
+                    <span>Vendor</span>
+                    <span class="text-secondary ml-1">{{device.vendor}}</span>
+                </div>
+
+                <div class="d-flex">
+                    <span>Created</span>
+                    <span class="text-secondary ml-1">{{device.createDate | date : 'medium'}}</span>
+                </div>
+
+                <button (click)="deleteDeviceClick(device)" class="mt-3" color="warn"
+                        mat-stroked-button>Delete Device
+                </button>
+
+            </div>
+        </div>
+    </mat-expansion-panel>
+
+    <span (click)="deleteGatewayClick()"
+          class="p-1 align-self-end warning cursor-pointer">Delete Gateway
+    </span>
+</div>
