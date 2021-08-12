@@ -1,0 +1,13 @@
+span.selected.warning {
+    background: #AF7373;
+    color: white !important;
+}
+
+span.selected.success {
+    background: #6D9F92;
+    color: white !important;
+}
+
+span.selected {
+    border-radius: 13px;
+}

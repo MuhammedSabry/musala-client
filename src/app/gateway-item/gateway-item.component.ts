@@ -40,8 +40,10 @@ export class GatewayItemComponent extends BaseComponent implements OnInit {
 
     addDeviceClick() {
         let matDialogRef = this.matDialog.open(AddDeviceComponent, {
+            width: '600px',
             disableClose: true
         });
+        matDialogRef.componentInstance.gatewayID = this.gateway.uuid;
         matDialogRef.afterClosed().subscribe(hasChanges => hasChanges ? this.onGatewayUpdated.emit() : {});
     }
 

@@ -3,6 +3,8 @@ import {Gateway} from "../data/model/gateway";
 import {GetGatewayListInteractorService} from "../data/interactor/get-gateway-list-interactor.service";
 import {BaseComponent} from "../base-component";
 import {SnackbarService} from "../data/service/snackbar.service";
+import {MatDialog} from "@angular/material/dialog";
+import {AddGatewayComponent} from "../add-gateway/add-gateway.component";
 
 @Component({
     selector: 'app-gateway-list',
@@ -16,6 +18,7 @@ export class GatewayListComponent extends BaseComponent implements OnInit {
 
     constructor(private getGatewayListInteractor: GetGatewayListInteractorService,
                 private snackbarService: SnackbarService,
+                private matDialog: MatDialog,
                 protected cdk: ChangeDetectorRef) {
         super(cdk);
     }
@@ -39,7 +42,11 @@ export class GatewayListComponent extends BaseComponent implements OnInit {
     }
 
     addGatewayClick() {
-
+        let matDialogRef = this.matDialog.open(AddGatewayComponent, {
+            width: '600px',
+            disableClose: true
+        });
+        matDialogRef.afterClosed().subscribe(hasChanges => hasChanges ? this.updateData() : {});
     }
 
     private stopLoading() {

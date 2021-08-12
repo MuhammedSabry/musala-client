@@ -3,5 +3,5 @@ export class Device {
     gatewayID?: string;
     vendor?: string;
     createDate?: Date;
-    isOnline?: boolean;
+    online: boolean = true;
 }

@@ -3,22 +3,27 @@
     <div class="dialog-header">
         <h5 class="m-0">Confirm</h5>
 
-        <button (click)="dialogRef.close(false)" color="accent" mat-icon-button>
+        <button (click)="dialogRef.close(false)"
+                color="accent"
+                mat-icon-button>
             <mat-icon>close</mat-icon>
         </button>
     </div>
 
-    <span class="p-3 d-flex" style="white-space: pre-line">{{ confirmMessage }}</span>
+    <span class="p-3 d-flex"
+          style="white-space: pre-line">{{ confirmMessage }}</span>
 
     <mat-dialog-actions>
 
         <div class="col-12 d-flex justify-content-end align-items-center">
 
-            <button (click)="dialogRef.close(false)" color="accent"
+            <button (click)="dialogRef.close(false)"
+                    color="accent"
                     mat-stroked-button>{{ cancelButtonLabel }}
             </button>
 
-            <button (click)="dialogRef.close(true)" color="warn"
+            <button (click)="dialogRef.close(true)"
+                    color="warn"
                     mat-stroked-button>{{ confirmButtonLabel }}
             </button>
 

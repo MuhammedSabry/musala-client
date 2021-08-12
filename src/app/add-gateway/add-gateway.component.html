@@ -1,26 +1,68 @@
 <mat-dialog-content>
 
     <div class="dialog-header">
-        <h5 class="m-0">Device</h5>
+        <h5 class="m-0">Add Gateway</h5>
 
-        <button (click)="closeClick()" color="warn" mat-icon-button>
+        <button (click)="closeClick()"
+                color="warn"
+                mat-icon-button>
             <mat-icon>close</mat-icon>
         </button>
     </div>
 
-    <form class="d-flex flex-column">
+    <form class="d-flex flex-column position-relative">
+
+        <mat-form-field appearance="outline"
+                        class="col m-3 mb-0"
+                        color="accent">
+
+            <mat-label>Gateway name</mat-label>
+
+            <input [formControl]="nameFormControl"
+                   matInput
+                   placeholder="e.x My Gateway"
+                   type="text">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline"
+                        class="col m-3 mt-0"
+                        color="accent">
+
+            <mat-label>Gateway address</mat-label>
+
+            <input [formControl]="addressFormControl"
+                   matInput
+                   placeholder="e.x 123.123.123.123"
+                   required
+                   type="text">
+            <mat-error *ngIf="addressFormControl.errors?.required">This cannot be left empty
+            </mat-error>
+            <mat-error *ngIf="addressFormControl.errors?.invalid">Invalid address, must be in format xxx.xxx.xxx.xxx
+            </mat-error>
+        </mat-form-field>
 
         <mat-dialog-actions>
 
             <div class="col-12 d-flex justify-content-end align-items-center">
 
-                <button (click)="closeClick()" color="warn" mat-stroked-button>Cancel
+                <button (click)="closeClick()"
+                        color="warn"
+                        mat-stroked-button
+                        type="button">Cancel
                 </button>
 
-                <button (click)="saveClick()" color="accent" mat-flat-button>Save
+                <button (click)="saveClick()"
+                        color="accent"
+                        mat-flat-button
+                        type="submit">Save
                 </button>
 
             </div>
         </mat-dialog-actions>
+        <div *ngIf="isLoading"
+             class="loading-overlay">
+            <mat-spinner color="accent"
+                         mode="indeterminate"></mat-spinner>
+        </div>
     </form>
 </mat-dialog-content>

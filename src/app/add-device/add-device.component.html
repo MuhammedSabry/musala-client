@@ -1,26 +1,62 @@
 <mat-dialog-content>
 
     <div class="dialog-header">
-        <h5 class="m-0">Device</h5>
+        <h5 class="m-0">Add Device</h5>
 
-        <button (click)="closeClick()" color="warn" mat-icon-button>
+        <button (click)="closeClick()"
+                color="warn"
+                mat-icon-button>
             <mat-icon>close</mat-icon>
         </button>
     </div>
 
-    <form class="d-flex flex-column">
+    <form class="d-flex flex-column position-relative">
+
+        <mat-form-field appearance="outline"
+                        class="col m-3 mb-0"
+                        color="accent">
+
+            <mat-label>Vendor</mat-label>
+
+            <input [formControl]="vendorFormControl"
+                   matInput
+                   placeholder="e.x Huawei"
+                   type="text">
+
+        </mat-form-field>
+
+        <div class="d-flex align-items-center m-3">
+            <span>Status:</span>
+            <span (click)="online=true"
+                  [class.selected]="online"
+                  class="p-1 ml-1 success cursor-pointer">Online
+            </span>
+            <span (click)="online=false"
+                  [class.selected]="!online"
+                  class="p-1 ml-1 warning cursor-pointer">Offline
+            </span>
+        </div>
 
         <mat-dialog-actions>
 
             <div class="col-12 d-flex justify-content-end align-items-center">
 
-                <button (click)="closeClick()" color="warn" mat-stroked-button>Cancel
+                <button (click)="closeClick()"
+                        color="warn"
+                        mat-stroked-button>Cancel
                 </button>
 
-                <button (click)="saveClick()" color="accent" mat-flat-button>Save
+                <button (click)="saveClick()"
+                        color="accent"
+                        mat-flat-button>Save
                 </button>
 
             </div>
         </mat-dialog-actions>
+        <div *ngIf="isLoading"
+             class="loading-overlay">
+            <mat-spinner color="accent"
+                         mode="indeterminate"></mat-spinner>
+        </div>
     </form>
 </mat-dialog-content>

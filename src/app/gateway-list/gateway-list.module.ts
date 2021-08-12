@@ -6,6 +6,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {AddGatewayModule} from "../add-gateway/add-gateway.module";
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
         MatProgressSpinnerModule,
         MatButtonModule,
         MatIconModule,
-        MatTooltipModule
+        MatTooltipModule,
+        AddGatewayModule
     ]
 })
 export class GatewayListModule {

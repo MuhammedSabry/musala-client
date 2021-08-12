@@ -7,7 +7,7 @@ import {Gateway} from "../model/gateway";
 @Injectable({
     providedIn: 'root'
 })
-export class AddGatewayInteractorService implements BaseInteractor<Gateway, void> {
+export class AddGatewayInteractor implements BaseInteractor<Gateway, void> {
 
     constructor(protected networkRepository: NetworkRepository) {
     }
